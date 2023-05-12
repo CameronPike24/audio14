@@ -11,7 +11,7 @@ from tools import AudioPlayer
 
 import time
 import wave
-from audiostream import get_input
+#from audiostream import get_input
 
 frames = []
 
@@ -37,7 +37,7 @@ wf.setframerate(mic.rate)
 wf.writeframes(b''.join(frames))
 wf.close()
 
-'''
+
 
 
 def mic_callback(buf):
@@ -67,6 +67,41 @@ class MyApp(App):
         btn1 = Button(text='Audio Record')
         btn1.bind(on_press=bcallback)
         return btn1
+
+
+'''
+
+
+from time import sleep
+from audiostream import get_input
+from audiostream import get_output, AudioSample
+
+#get speakers, create sample and bind to speakers
+stream = get_output(channels=2, rate=22050, buffersize=1024)
+sample = AudioSample()
+stream.add_sample(sample)
+
+
+#define what happens on mic input with arg as buffer
+def mic_callback(buf):
+    print 'got', len(buf)
+    #HERE: How do I manipulate buf?
+    #modified_buf = function(buf)
+    #sample.write(modified_buf)
+    sample.write(buf)
+
+
+# get the default audio input (mic on most cases)
+mic = get_input(callback=mic_callback)
+mic.start()
+sample.play()
+sleep(3)  #record for 3 seconds
+mic.stop()
+sample.stop()
+
+
+
+
 
 #if name == 'main':
 if __name__=='__main__':
