@@ -52,7 +52,7 @@ def bcallback(instance):
     print("we at mic = ")
     mic.start()
     print("mic.start")
-    #mic.poll()
+    mic.poll()
     time.sleep(5)
     print("time.sleep")
     mic.stop()
