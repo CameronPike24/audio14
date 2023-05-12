@@ -85,7 +85,7 @@ stream.add_sample(sample)
 #define what happens on mic input with arg as buffer
 def mic_callback(buf):
    
-    print('got', len(buf))
+    print('yeah we got', len(buf))
     #HERE: How do I manipulate buf?
     #modified_buf = function(buf)
     #sample.write(modified_buf)
@@ -96,9 +96,10 @@ def mic_callback(buf):
 mic = get_input(callback=mic_callback)
 mic.start()
 sample.play()
-time.sleep(5)  #record for 3 seconds
-mic.stop()
-sample.stop()
+print("we at sample play")
+#time.sleep(5)  #record for 3 seconds
+#mic.stop()
+#sample.stop()
 
 
 
