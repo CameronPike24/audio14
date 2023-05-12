@@ -48,7 +48,8 @@ def mic_callback(buf):
 def bcallback(instance):
     print("we at bcallback")
     #mic = get_input(callback=mic_callback, source='mic')
-    mic = get_input(callback=mic_callback, source='default')
+    #mic = get_input(callback=mic_callback, source='default')
+    mic = get_input(callback=mic_callback)
     print("we at mic = ")
     mic.start()
     print("mic.start")
