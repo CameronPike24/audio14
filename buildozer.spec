@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = Audio2
+title = Audio1
 
 # (str) Package name
-package.name = c4k_tflite_audio2
+package.name = c4k_tflite_audio1
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.example
