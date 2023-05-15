@@ -45,6 +45,7 @@ class AudioPlayer:
         #print('size of frames: ' + str(len(self.audioData)))
         print('size of frames: ' + str(len(buffer)))
         #print ('got : ' + str(len(buf)))
+        self.sample.write(buffer)
 
     #def start(self):
         # method which begins the process of recording the audio data
@@ -98,8 +99,8 @@ class AudioPlayer:
         self.pos = 0
         self.freq_change = False
         
-        self.mic.start() # starts the method 'self.mic' recording audio data
-        Clock.schedule_interval(self.readChunk, 1 / self.samples_per_second) # calls the method 'self.readChunk' to read and store each audio buffer (2048 samples) 60 times per second         
+        #self.mic.start() # starts the method 'self.mic' recording audio data
+        #Clock.schedule_interval(self.readChunk, 1 / self.samples_per_second) # calls the method 'self.readChunk' to read and store each audio buffer (2048 samples) 60 times per second         
         
 
         while self.playing:
