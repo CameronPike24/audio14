@@ -34,7 +34,8 @@ class AudioPlayer:
         self.audioData = [] # creates a list to store the audio bytes recorded
         #import sys
         #importlib.reload(sys.modules['audiostream']) # reloads the audiostream module - thought this might solve the problem; it doesn't!!
-        self.mic = get_input(callback=self.micCallback, rate=44100, source='default', buffersize=512) # initialises the method get_input from the module with the properties required   
+        #self.mic = get_input(callback=self.micCallback, rate=44100, source='default', buffersize=512) # initialises the method get_input from the module with the properties required  
+        self.mic = get_input(callback=self.micCallback, source='default') # initialises the method get_input from the module with the properties required   
         Clock.schedule_interval(self.readChunk, 1 / self.samples_per_second) # calls the method 'self.readChunk' to read and store each audio buffer (2048 samples) 60 times per second 
       
         
